@@ -182,7 +182,7 @@ with tab1:
 
             most_energetic = genre_summary.loc[genre_summary["energy"].idxmax()]
 
-            st.info(
+            st.success(
                 f"Among the selected genres, {most_danceable['track_genre']} "
                 f"has the highest average danceability "
                 f"({most_danceable['danceability']:.3f}), while "
