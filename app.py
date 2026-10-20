@@ -271,8 +271,8 @@ with tab2:
             st.markdown("### 🎵")
 
         with col2:
-            st.markdown(f"### {selected_song['track_name']}")
-            st.write(selected_song["artists"])
+            st.markdown(f"### {selected_song_info['track_name']}")
+            st.write(selected_song_info["artists"])
 
     num_recommendations = st.slider(
     "Number of recommendations:",
