@@ -262,10 +262,17 @@ with tab2:
 
     selected_song_info = recommend_music_df.iloc[song_index]
 
-    st.write("**Selected Song**")
-    st.write(f"**Title:** {selected_song_info['track_name']}")
-    st.write(f"**Artist:** {selected_song_info['artists']}")
-    st.write(f"**Genre:** {selected_song_info['track_genre']}")
+    st.subheader("Selected Song")
+
+    with st.container(border=True):
+        col1, col2 = st.columns([1, 5], vertical_alignment="center")
+
+        with col1:
+            st.markdown("### 🎵")
+
+        with col2:
+            st.markdown(f"### {selected_song['track_name']}")
+            st.write(selected_song["artists"])
 
     num_recommendations = st.slider(
     "Number of recommendations:",
