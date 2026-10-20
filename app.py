@@ -364,11 +364,11 @@ with tab2:
             labels={"Value": "Feature Value"}
         )
 
-        fig.for_each_trace(lambda trace: trace.update(
-        marker_color={
-            "Selected Song": "#1DB954",
-            "Recommended Song": "#8BE6AD"
-        }.get(trace.name)))
+        for trace in fig_comparison.data:
+            if trace.name == "Selected Song":
+                trace.marker.color = "#1DB954"
+            elif trace.name == "Recommended Song":
+                trace.marker.color = "#8BE6AD"
         fig_comparison.update_yaxes(range=[0, 1])
 
         fig_comparison.update_layout(
