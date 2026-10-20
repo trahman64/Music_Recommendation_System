@@ -375,26 +375,37 @@ with tab2:
                 trace.marker.color = "#1DB954"
             elif trace.name == "Recommended Song":
                 trace.marker.color = "#8BE6AD"
-        fig_comparison.update_yaxes(range=[0, 1])
 
+        # Chart layout
         fig_comparison.update_layout(
-        hoverlabel=dict(
-            bgcolor="#2C3E50",
-            font_color="white",
-            font_size=14
-        ),
-        legend=dict(
-            font=dict(size=14, color="#333333")
-        ))
+            paper_bgcolor="#121212",
+            plot_bgcolor="#121212",
+            font=dict(color="white"),
+            hoverlabel=dict(
+                bgcolor="#2C3E50",
+                font_color="white",
+                font_size=14
+            ),
+            legend=dict(
+                font=dict(size=14, color="white")
+            )
+        )
 
+        # X-axis
         fig_comparison.update_xaxes(
-            tickfont=dict(size=14, color="#333333"),
-            title_font=dict(size=16, color="#333333")
+            title_font=dict(color="white"),
+            tickfont=dict(color="white"),
+            gridcolor="#333333",
+            zerolinecolor="#333333"
         )
 
+        # Y-axis
         fig_comparison.update_yaxes(
-            tickfont=dict(size=14, color="#333333"),
-            title_font=dict(size=16, color="#333333"),
-            range=[0, 1]
+            range=[0, 1],
+            title_font=dict(color="white"),
+            tickfont=dict(color="white"),
+            gridcolor="#333333",
+            zerolinecolor="#333333"
         )
+
         st.plotly_chart(fig_comparison, use_container_width=True)
