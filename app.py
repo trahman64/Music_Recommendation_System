@@ -268,8 +268,7 @@ with tab2:
         col1, col2 = st.columns([1, 5], vertical_alignment="center")
 
         with col1:
-            st.markdown("### 🎵")
-
+            st.markdown("<div style='font-size: 45px; color: #1DB954;'>♫</div>",unsafe_allow_html=True)
         with col2:
             st.markdown(f"### {selected_song_info['track_name']}")
             st.write(selected_song_info["artists"])
