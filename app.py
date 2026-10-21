@@ -160,20 +160,26 @@ with tab1:
 
             
             fig.update_xaxes(
-            tickfont=dict(size=14, color="#333333"),
-            title_font=dict(size=16, color="#333333"),
+            tickfont=dict(size=14, color="white"),
+            title_font=dict(size=16, color="white"),
+            gridcolor="#333333",
             range=[0, 1])
 
             fig.update_yaxes(
-            tickfont=dict(size=14, color="#333333"),
-            title_font=dict(size=16, color="#333333"),
+            tickfont=dict(size=14, color="white"),
+            title_font=dict(size=16, color="white"),
+            gridcolor="#333333",
             range=[0, 1])
+
             fig.update_layout(
+            paper_bgcolor="#121212",
+            plot_bgcolor="#121212",
+            font=dict(color="white"),
+            showlegend=False,
             hoverlabel=dict(
-                bgcolor="white",
+                bgcolor="#2C3E50",
                 font_size=14,
-                font_color="black"
-            ),showlegend=False)
+                font_color="white" ))
             
 
             st.plotly_chart(fig, use_container_width=True)
@@ -213,16 +219,24 @@ with tab1:
             )
             fig_box.update_traces(fillcolor=None, opacity=0.85)
             fig_box.update_xaxes(
-            tickfont=dict(size=14, color="#333333"),
-            title_font=dict(size=16, color="#333333"))
+            tickfont=dict(size=14, color="white"),
+            title_font=dict(size=16, color="white"),
+            gridcolor="#333333")
 
             fig_box.update_yaxes(
-            tickfont=dict(size=14, color="#333333"),
-            title_font=dict(size=16, color="#333333"),
+            tickfont=dict(size=14, color="white"),
+            title_font=dict(size=16, color="white"),
+            gridcolor="#333333",
             range=[0, 1])
-            fig_box.update_layout(showlegend=False)
-            fig_box.update_layout(hoverlabel=dict(bgcolor="white",font_size=14,font_color="black"),
-                                showlegend=False)
+            fig_box.update_layout(
+            paper_bgcolor="#121212",
+            plot_bgcolor="#121212",
+            font=dict(color="white"),
+            showlegend=False,
+            hoverlabel=dict(
+                bgcolor="#2C3E50",
+                font_size=14,
+                font_color="white"))
 
             st.plotly_chart(fig_box, use_container_width=True)
 
@@ -230,7 +244,7 @@ with tab1:
 
             most_variable_genre = danceability_spread.idxmax()
 
-            st.info(
+            st.success(
                 f"Among the selected genres, {most_variable_genre} "
                 f"has the greatest variation in danceability "
                 f"(standard deviation = "
@@ -376,36 +390,36 @@ with tab2:
             elif trace.name == "Recommended Song":
                 trace.marker.color = "#8BE6AD"
 
-        # Chart layout
-        fig_comparison.update_layout(
-            paper_bgcolor="#121212",
-            plot_bgcolor="#121212",
-            font=dict(color="white"),
-            hoverlabel=dict(
-                bgcolor="#2C3E50",
-                font_color="white",
-                font_size=14
-            ),
-            legend=dict(
-                font=dict(size=14, color="white")
+            # Chart layout
+            fig_comparison.update_layout(
+                paper_bgcolor="#121212",
+                plot_bgcolor="#121212",
+                font=dict(color="white"),
+                hoverlabel=dict(
+                    bgcolor="#2C3E50",
+                    font_color="white",
+                    font_size=14
+                ),
+                legend=dict(
+                    font=dict(size=14, color="white")
+                )
             )
-        )
 
-        # X-axis
-        fig_comparison.update_xaxes(
-            title_font=dict(color="white"),
-            tickfont=dict(color="white"),
-            gridcolor="#333333",
-            zerolinecolor="#333333"
-        )
+            # X-axis
+            fig_comparison.update_xaxes(
+                title_font=dict(color="white"),
+                tickfont=dict(color="white"),
+                gridcolor="#333333",
+                zerolinecolor="#333333"
+            )
 
-        # Y-axis
-        fig_comparison.update_yaxes(
-            range=[0, 1],
-            title_font=dict(color="white"),
-            tickfont=dict(color="white"),
-            gridcolor="#333333",
-            zerolinecolor="#333333"
-        )
+            # Y-axis
+            fig_comparison.update_yaxes(
+                range=[0, 1],
+                title_font=dict(color="white"),
+                tickfont=dict(color="white"),
+                gridcolor="#333333",
+                zerolinecolor="#333333"
+            )
 
-        st.plotly_chart(fig_comparison, use_container_width=True)
+            st.plotly_chart(fig_comparison, use_container_width=True)
