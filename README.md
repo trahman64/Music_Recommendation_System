@@ -12,9 +12,11 @@ The dataset used in the project is from the [Spotify Tracks Dataset](https://www
 Dataset had to be cleaned before any analysis was done. At first, unnecessary column was removed which was the column 'unnamed'. Secondly, there was one observation with missing song titles, artist names and album names which was also removed. Thirdly, exact duplicated rows were removed. For the recommendation system, songs with the same title and artist were kept only once to avoid recommending duplicate songs, and also songs with zero tempo were removed because there is a high chance they may indicate unavailable tempo information. These information were kept for EDA. 
 ## Exploratory Data Analysis
 EDA was done to get a better understanding of audio characteristics differ across music genres. For the initial analysis, seven genres were selected which includes rock, pop, classical, hip-hop, jazz, electronic and acoustic.
-### EDA 1: Average Danceability vs Avergage Energy by Genre
+### EDA 1: Average Danceability vs Average Energy by Genre
+#### Question: How do average danceability and energy levels differ across music genres?
 To do this, a scatter plot was created using plotly. This showed us that hip-hop has the highest average danceability while electronic music has the highest average energy. On the other hand, classical music has the lowest average danceability and energy. However, rock music has relatively high energy but it has lower danceability in contrast with hip-hop and electronic music. Exact numbers can be found in the music_analysis_EDA.ipynb.
 ### EDA 2: Danceability Distribution across Genre
+#### Question: How much does danceability vary among songs within the same genre?
 To do this, a box plot was done which displayed how danceability varies within and across genres. This portrayed that hip-hop has the highest median danceability where as classical music has the lowest. Classical music has a low median but it also has a high variation. In general, pop and electronic have higher danceability values.
 
 Overall, both EDA suggests that audio features do differ across music genres even though some might have a bit overlap. Therefore, it makes sense to use audio features to compare songs instead of using genres for the recommendation system.
@@ -32,12 +34,16 @@ The steps to run the music recommendation system locally will be described below
 ### Cloning the Repository
 The repository can be cloned from https://github.com/trahman64/Music_Recommendation_System.git
 The particular commands are:
+```bash
 git clone https://github.com/trahman64/Music_Recommendation_System.git
 cd Music_Recommendation_System
+```
 
 ### Dependencies
 Any libraries required for this project is outlined inside requirements.txt. Run the command below to get everything installed.
+```bash
 pip install -r requirements.txt
+```
 
 ### Dataset
 Data file is put inside the data directory.
