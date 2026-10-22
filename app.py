@@ -267,7 +267,8 @@ with tab2:
 
     search_query = st.text_input(
     "Search for a song:",
-    placeholder="Type a song name or artist...")
+    placeholder="Type a song name or artist..."
+)
 
     matching_songs = recommend_music_df[
         recommend_music_df["song_label"].str.contains(
@@ -279,8 +280,11 @@ with tab2:
         "Select a matching song:",
         matching_songs["song_label"].head(20),
         index=None,
-        placeholder="Choose a song..."
-    )
+        placeholder="Choose a song...")
+
+    if selected_song is None:
+        st.info("Search for a song and select it to get recommendations.")
+        st.stop()
 
     song_index = recommend_music_df[
         recommend_music_df["song_label"] == selected_song
