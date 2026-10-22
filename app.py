@@ -266,9 +266,10 @@ with tab2:
     )
 
     selected_song = st.selectbox(
-        "Search for a song:",
-        recommend_music_df["song_label"]
-    )
+    "Search for a song:",
+    recommend_music_df["song_label"],
+    placeholder="Type a song name or artist...",
+    key="song_search")
 
     song_index = recommend_music_df[
         recommend_music_df["song_label"] == selected_song
