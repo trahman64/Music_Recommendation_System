@@ -265,11 +265,22 @@ with tab2:
         "with similar audio characteristics."
     )
 
-    selected_song = st.selectbox(
+    search_query = st.text_input(
     "Search for a song:",
-    recommend_music_df["song_label"],
-    placeholder="Type a song name or artist...",
-    key="song_search")
+    placeholder="Type a song name or artist...")
+
+    matching_songs = recommend_music_df[
+        recommend_music_df["song_label"].str.contains(
+            search_query, case=False, na=False, regex=False
+        )
+    ] if search_query.strip() else recommend_music_df.iloc[:0]
+
+    selected_song = st.selectbox(
+        "Select a matching song:",
+        matching_songs["song_label"].head(20),
+        index=None,
+        placeholder="Choose a song..."
+    )
 
     song_index = recommend_music_df[
         recommend_music_df["song_label"] == selected_song
